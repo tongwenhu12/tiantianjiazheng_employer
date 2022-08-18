@@ -27,7 +27,7 @@
                 android:text="填写工作信息内容" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName4"
+                android:id="@+id/tt_workLocation"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:ems="10"
@@ -35,7 +35,7 @@
                 android:inputType="textPersonName" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName5"
+                android:id="@+id/tt_pet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -44,7 +44,7 @@
                 android:minHeight="48dp" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName6"
+                android:id="@+id/tt_houseSize"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -53,7 +53,7 @@
                 android:minHeight="48dp" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName7"
+                android:id="@+id/tt_comeFrom"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -62,7 +62,7 @@
                 android:minHeight="48dp" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName8"
+                android:id="@+id/tt_startDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -71,7 +71,7 @@
                 android:minHeight="48dp" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName9"
+                android:id="@+id/tt_hireLength"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -80,7 +80,7 @@
                 android:minHeight="48dp" />
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/tt_submitJob"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="提交工作信息" />
