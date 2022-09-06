@@ -83,6 +83,7 @@
                 android:id="@+id/tt_submitJob"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="tt_submitJob"
                 android:text="提交工作信息" />
         </LinearLayout>
     </ScrollView>

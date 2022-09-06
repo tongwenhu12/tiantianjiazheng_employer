@@ -21,7 +21,7 @@
         android:id="@+id/currentJobs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="32dp"
         android:onClick="currentJobs"
         android:text="近期家政工作招聘样本"
         android:textSize="20sp"
@@ -31,12 +31,12 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <Button
-        android:id="@+id/employerNotice"
+        android:id="@+id/userLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:onClick="employerNotice"
-        android:text="雇主注意事项"
+        android:layout_marginTop="32dp"
+        android:onClick="userLogin2"
+        android:text="注册登录"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -44,42 +44,16 @@
         app:layout_constraintTop_toBottomOf="@+id/currentJobs" />
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:onClick="hiringForm"
-        android:text="开始招聘"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userLogin" />
-
-    <Button
-        android:id="@+id/userLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:onClick="userLogin2"
-        android:text="注册登录"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/employerNotice" />
-
-    <Button
         android:id="@+id/showFriend"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="46dp"
+        android:layout_marginTop="32dp"
         android:onClick="showFriend"
         android:text="介绍给朋友"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/userLogin" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

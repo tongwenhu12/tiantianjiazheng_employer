@@ -14,10 +14,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void employerNotice(View view) {
-        Intent intent = new Intent(getApplicationContext(),notice.class);
-        startActivity(intent);
-    }
+
 
     public void userLogin2(View view) {
         Intent intent = new Intent(getApplicationContext(),UserLogin2.class);
@@ -29,10 +26,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void hiringForm(View view) {
-        Intent intent = new Intent(getApplicationContext(),HiringForm.class);
-        startActivity(intent);
-    }
+
 
 
 
