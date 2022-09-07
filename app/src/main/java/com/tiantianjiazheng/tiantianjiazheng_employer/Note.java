@@ -5,8 +5,9 @@ import com.google.firebase.firestore.Exclude;
 
 public class Note {
     private String documentId;
-    private String name;
+
     private String location;
+    private String pet;
 
     public Note() {
         //public no-arg constructor needed
@@ -21,13 +22,13 @@ public class Note {
         this.documentId = documentId;
     }
 
-    public Note(String name, String location) {
-        this.name = name;
+    public Note(String location,String pet) {
+        this.pet = pet;
         this.location = location;
     }
 
     public String getName() {
-        return name;
+        return pet;
     }
 
     public String getLocation() {

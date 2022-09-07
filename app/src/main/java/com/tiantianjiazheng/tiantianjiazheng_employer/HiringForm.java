@@ -29,9 +29,10 @@ public class HiringForm extends AppCompatActivity {
     private static final String KEY_TITLE = "name";
     private static final String KEY_DESCRIPTION = "location";
 
-    private EditText editTextName;
     private EditText editTextLocation;
-    private TextView textViewData;
+    private EditText editTextPet;
+
+//    private TextView textViewData;
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private CollectionReference notebookRef = db.collection("employers");
@@ -42,9 +43,11 @@ public class HiringForm extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hiring_form);
 
-        editTextName = findViewById(R.id.edit_text_name2);
-        editTextLocation = findViewById(R.id.edit_text_location2);
-        textViewData = findViewById(R.id.text_view_data2);
+
+        editTextLocation = findViewById(R.id.tt_workLocation);
+        editTextPet = findViewById(R.id.tt_pet);
+
+//        textViewData = findViewById(R.id.text_view_data2);
     }
 
 //    @Override
@@ -78,12 +81,12 @@ public class HiringForm extends AppCompatActivity {
 
     public void tt_submitJob(View v) {
 
-        String name = editTextName.getText().toString();
+        String pet = editTextPet.getText().toString();
         String location = editTextLocation.getText().toString();
 
         Map<String, Object> jobs = new HashMap<>();
-        jobs.put("first", name);
-        jobs.put("last", location);
+        jobs.put("是否有宠物", pet);
+        jobs.put("雇主家位置", location);
         jobs.put("born", 96969);
 
         db.collection("jobs").document("2300000").set(jobs);
