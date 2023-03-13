@@ -16,8 +16,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    public void userLogin2(View view) {
-        Intent intent = new Intent(getApplicationContext(),UserLogin2.class);
+    public void userLogin3(View view) {
+        Intent intent = new Intent(getApplicationContext(),userLogin3.class);
         startActivity(intent);
     }
 
@@ -26,6 +26,16 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void EmployerNotice(View view) {
+        Intent intent = new Intent(getApplicationContext(),EmployerNotice.class);
+        startActivity(intent);
+    }
+
+
+    public void test(View view) {
+        Intent intent = new Intent(getApplicationContext(),testActivity.class);
+        startActivity(intent);
+    }
 
 
 

@@ -1,227 +1,152 @@
 package com.tiantianjiazheng.tiantianjiazheng_employer;
 
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class HiringForm extends AppCompatActivity {
-    private static final String TAG = "HiringForm";
+//    private static final String TAG = "HiringForm";
+//
+//    private static final String KEY_TITLE = "name";
+//    private static final String KEY_DESCRIPTION = "location";
 
-    private static final String KEY_TITLE = "name";
-    private static final String KEY_DESCRIPTION = "location";
 
-    private EditText editTextLocation;
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
+
+
+    private EditText editTextName1;
+    private EditText editTexttelephone1;
+    private EditText editTextFamily;
+    private EditText editTextHouse;
     private EditText editTextPet;
 
-//    private TextView textViewData;
+
+    private EditText editTextDays_week;
+    private EditText editTextHow_long;
+    private EditText editTextMain_task;
+    private EditText editTextNanny_type;
+    private EditText editTextRequirement;
+    private EditText editTextSalary;
+    private EditText editTextStart_date;
+    private EditText editTextStart_end;
+
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private CollectionReference notebookRef = db.collection("employers");
     private DocumentReference noteRef = db.document("employers/22082201");
+
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    String userEmail = user.getEmail();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hiring_form);
 
+        editTextName1 = findViewById(R.id.name1);
+        editTexttelephone1 = findViewById(R.id.telephone1);
+        editTextFamily = findViewById(R.id.family);
+        editTextHouse = findViewById(R.id.house);
+        editTextPet = findViewById(R.id.pet);
 
-        editTextLocation = findViewById(R.id.tt_workLocation);
-        editTextPet = findViewById(R.id.tt_pet);
 
-//        textViewData = findViewById(R.id.text_view_data2);
+        editTextDays_week = findViewById(R.id.days_week);
+        editTextHow_long = findViewById(R.id.how_long);
+        editTextMain_task = findViewById(R.id.main_task);
+        editTextNanny_type = findViewById(R.id.nanny_type);
+        editTextRequirement = findViewById(R.id.requirement);
+        editTextSalary = findViewById(R.id.salary);
+        editTextStart_date = findViewById(R.id.start_date);
+        editTextStart_end = findViewById(R.id.start_end);
+
     }
 
-//    @Override
-//    protected void onStart() {
-//        super.onStart();
-//        notebookRef.addSnapshotListener(this, new EventListener<QuerySnapshot>() {
-//            @Override
-//            public void onEvent(QuerySnapshot queryDocumentSnapshots, FirebaseFirestoreException e) {
-//                if (e != null) {
-//                    return;
-//                }
-//
-//                String data = "";
-//
-//                for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
-//                    Note note = documentSnapshot.toObject(Note.class);
-//                    note.setDocumentId(documentSnapshot.getId());
-//
-//                    String documentId = note.getDocumentId();
-//                    String title = note.getName();
-//                    String description = note.getLocation();
-//
-//                    data += "ID: " + documentId
-//                            + "\nTitle: " + title + "\nDescription: " + description + "\n\n";
-//                }
-//
-//                textViewData.setText(data);
-//            }
-//        });
-//    }
 
     public void tt_submitJob(View v) {
 
+
+        String name1 = editTextName1.getText().toString();
+        String telephone1 = editTexttelephone1.getText().toString();
+        String family = editTextFamily.getText().toString();
+        String house = editTextHouse.getText().toString();
         String pet = editTextPet.getText().toString();
-        String location = editTextLocation.getText().toString();
+
+        String days_week = editTextDays_week.getText().toString();
+        String how_long = editTextHow_long.getText().toString();
+        String main_task = editTextMain_task.getText().toString();
+        String nanny_type = editTextNanny_type.getText().toString();
+        String requirement = editTextRequirement.getText().toString();
+        String salary = editTextSalary.getText().toString();
+        String start_date = editTextStart_date.getText().toString();
+        String start_end =  editTextStart_end.getText().toString();
+
 
         Map<String, Object> jobs = new HashMap<>();
-        jobs.put("是否有宠物", pet);
-        jobs.put("雇主家位置", location);
-        jobs.put("born", 96969);
 
-        db.collection("jobs").document("2300000").set(jobs);
+
+
+
+        jobs.put("name", name1);
+        jobs.put("telephone", telephone1);
+        jobs.put("family", family);
+        jobs.put("house", house);
+        jobs.put("pet", pet);
+
+        jobs.put("days_week", days_week);
+        jobs.put("how_long", how_long);
+        jobs.put("main_task", main_task);
+        jobs.put("nanny_type", nanny_type);
+        jobs.put("requirement", requirement);
+        jobs.put("salary", salary);
+        jobs.put("start_date", start_date);
+        jobs.put("start_end_time", start_end);
+        jobs.put("employer's email", userEmail);
+
+        db.collection("jobss").document(userEmail).update(jobs);
+
+
+        Toast.makeText(getApplicationContext(), "工作信息 上传/修改 成功!",
+                Toast.LENGTH_LONG).show();
+
 
 
     }
 
-//    public void loadEmployers2(View v) {
-//        notebookRef.get()
-//                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-//                    @Override
-//                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-//                        String data = "";
-//
-//                        for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
-//                            Note note = documentSnapshot.toObject(Note.class);
-//                            note.setDocumentId(documentSnapshot.getId());
-//
-//                            String documentId = note.getDocumentId();
-//                            String name = note.getName();
-//                            String location = note.getLocation();
-//
-//                            data += "ID: " + documentId
-//                                    + "\nName: " + name + "\nLocation: " + location + "\n\n";
-//                        }
-//
-//                        textViewData.setText(data);
-//                    }
-//                });
-//    }
+    public void tt_close(View v) {
+
+        finish();
+
+    }
+
+    public void tt_logOut(View v) {
+
+        mAuth.signOut();
+
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(intent);
+        finish();
+
+        Toast.makeText(getApplicationContext(), "您已经成功退出登录。",
+                Toast.LENGTH_LONG).show();
+
+    }
+
+
 }
 
-
-
-
-//import androidx.appcompat.app.AppCompatActivity;
-//import android.os.Bundle;
-//
-//import androidx.annotation.NonNull;
-//import android.view.View;
-//import android.widget.Button;
-//import android.widget.EditText;
-//import android.widget.Toast;
-//import com.google.android.gms.tasks.OnFailureListener;
-//import com.google.android.gms.tasks.OnSuccessListener;
-//import com.google.firebase.firestore.DocumentReference;
-//import com.google.firebase.firestore.FirebaseFirestore;
-//import org.jetbrains.annotations.NotNull;
-//import java.util.HashMap;
-//import java.util.Map;
-//
-//
-//
-//public class HiringForm extends AppCompatActivity {
-//
-//    EditText workLocation,pet,houseSize,comeFrom,startDate,hireLength;
-//    Button submitJob;
-//    FirebaseFirestore db;
-//
-//
-//
-//
-//
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_hiring_form);
-//
-//        db = FirebaseFirestore.getInstance();
-//
-//        workLocation = findViewById(R.id.tt_workLocation);
-//        pet = findViewById(R.id.tt_pet);
-//        houseSize = findViewById(R.id.tt_houseSize);
-//        comeFrom = findViewById(R.id.tt_comeFrom);
-//        startDate = findViewById(R.id.tt_startDate);
-//        hireLength = findViewById(R.id.tt_hireLength);
-//
-//        submitJob = findViewById(R.id.tt_submitJob);
-//
-//
-//        submitJob.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                String WorkLocation = workLocation.getText().toString();
-//                String Pet = pet.getText().toString();
-//                String HouseSize = houseSize.getText().toString();
-//                String ComeFrom = comeFrom.getText().toString();
-//                String StartDate = startDate.getText().toString();
-//                String HireLength = hireLength.getText().toString();
-//
-//
-//
-//
-//                Map<String,Object> user = new HashMap<>();
-//
-//                user.put("WorkLocation",WorkLocation);
-//                user.put("Pet",Pet);
-//                user.put("HouseSize",HouseSize);
-//                user.put("ComeFrom",ComeFrom);
-//                user.put("StartDate",StartDate);
-//                user.put("HireLength",HireLength);
-//
-//
-//
-//
-//
-//
-//                db.collection("user")
-//                        .add(user)
-//                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-//                            @Override
-//                            public void onSuccess(DocumentReference documentReference) {
-//                                Toast.makeText(HiringForm.this,"Successful",Toast.LENGTH_SHORT).show();
-//                            }
-//                        }).addOnFailureListener(new OnFailureListener() {
-//                            @Override
-//                            public void onFailure(@NonNull @NotNull Exception e) {
-//
-//                                Toast.makeText(HiringForm.this,"Failed",Toast.LENGTH_SHORT).show();
-//
-//
-//                            }
-//                        });
-//
-//            }
-//        });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//    }
-//}

@@ -9,10 +9,13 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/currentJobs"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo" />
@@ -21,7 +24,6 @@
         android:id="@+id/currentJobs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
         android:onClick="currentJobs"
         android:text="近期家政工作招聘样本"
         android:textSize="20sp"
@@ -34,9 +36,49 @@
         android:id="@+id/userLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:onClick="userLogin2"
+        android:layout_marginBottom="32dp"
+        android:onClick="userLogin3"
         android:text="注册登录"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/showFriend"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/showFriend"
+        android:layout_width="148dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="16dp"
+        android:onClick="showFriend"
+        android:text="介绍给朋友"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="29dp"
+        android:text="雇主   3.0版"
+        android:textColor="#1D33AA"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/EmployerNotice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:onClick="EmployerNotice"
+        android:text="雇主注意事项"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -44,16 +86,15 @@
         app:layout_constraintTop_toBottomOf="@+id/currentJobs" />
 
     <Button
-        android:id="@+id/showFriend"
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:onClick="showFriend"
-        android:text="介绍给朋友"
-        android:textSize="20sp"
+        android:onClick="test"
+        android:text="TEST"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/EmployerNotice" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

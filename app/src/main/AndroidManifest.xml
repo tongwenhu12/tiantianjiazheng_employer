@@ -11,11 +11,23 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="雇主版"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Tiantianjiazheng_employer"
         tools:targetApi="31">
+        <activity
+            android:name=".listView2"
+            android:exported="false" />
+        <activity
+            android:name=".testActivity"
+            android:exported="false" />
+        <activity
+            android:name=".userLogin3"
+            android:exported="false" />
+        <activity
+            android:name=".EmployerNotice"
+            android:exported="false" />
         <activity
             android:name=".UserLogin2"
             android:exported="false" />

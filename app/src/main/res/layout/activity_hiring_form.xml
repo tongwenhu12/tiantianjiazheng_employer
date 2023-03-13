@@ -24,45 +24,86 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:gravity="center"
-                android:text="填写工作信息内容" />
+                android:text="填写工作信息内容"
+                android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/tt_workLocation"
+                android:id="@+id/name1"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:ems="10"
-                android:hint="需要家政工人工作的地点"
+                android:hint="雇主姓名"
                 android:inputType="textPersonName" />
 
             <EditText
-                android:id="@+id/tt_pet"
+                android:id="@+id/telephone1"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:ems="10"
+                android:hint="雇主联系电话"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/family"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:ems="10"
+                android:hint="家庭成员数量，来自中国哪个地区"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/house"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:ems="10"
+                android:hint="房子多大"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/pet"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:ems="10"
+                android:hint="是否有宠物"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/days_week"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:ems="10"
+                android:hint="每周需要保姆工作几天"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/how_long"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="家里是否有宠物"
+                android:hint="计划雇用保姆多长时间"
                 android:inputType="textPersonName"
                 android:minHeight="48dp" />
 
             <EditText
-                android:id="@+id/tt_houseSize"
+                android:id="@+id/main_task"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="雇主家是那种房子，面积多大"
+                android:hint="主要工作内容"
                 android:inputType="textPersonName"
                 android:minHeight="48dp" />
 
             <EditText
-                android:id="@+id/tt_comeFrom"
+                android:id="@+id/nanny_type"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="雇主家庭成员数量，来自中国哪个地区"
+                android:hint="需要哪类家政工人"
                 android:inputType="textPersonName"
                 android:minHeight="48dp" />
 
             <EditText
-                android:id="@+id/tt_startDate"
+                android:id="@+id/start_date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -71,11 +112,29 @@
                 android:minHeight="48dp" />
 
             <EditText
-                android:id="@+id/tt_hireLength"
+                android:id="@+id/start_end"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="计划雇佣家政工人多长时间"
+                android:hint="每天上班时间是几点到几点"
+                android:inputType="textPersonName"
+                android:minHeight="48dp" />
+
+            <EditText
+                android:id="@+id/salary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="计划支付的工资数额"
+                android:inputType="textPersonName"
+                android:minHeight="48dp" />
+
+            <EditText
+                android:id="@+id/requirement"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="对保姆的要求"
                 android:inputType="textPersonName"
                 android:minHeight="48dp" />
 
@@ -85,6 +144,22 @@
                 android:layout_height="wrap_content"
                 android:onClick="tt_submitJob"
                 android:text="提交工作信息" />
+
+            <Button
+                android:id="@+id/tt_close"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="tt_close"
+                android:text="关闭本页面" />
+
+            <Button
+                android:id="@+id/tt_logOut"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="tt_logOut"
+                android:text="退出登录" />
+
+
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
